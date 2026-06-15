@@ -1,0 +1,18 @@
+==================================================
+       REPORTE COMPARATIVO DE MODELOS DE BOOSTING
+==================================================
+
+TABLA COMPARATIVA DE MÉTRICAS:
+--------------------------------------------------
+Métrica        XGBoost        LightGBM       
+---------------------------------------------
+Accuracy       0.9928         0.9960         
+F1-Score       0.9765         0.9868         
+ROC AUC        1.0000         1.0000         
+
+ANÁLISIS DE CONFUSIÓN DE LIGHTGBM:
+--------------------------------------------------
+- Verdaderos Negativos: 1058
+- Falsos Positivos: 5
+- Falsos Negativos: 0
+- Verdaderos Positivos: 187

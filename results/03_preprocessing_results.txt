@@ -1,0 +1,20 @@
+==================================================
+     REPORTE DE PREPROCESAMIENTO Y LIMPIEZA
+==================================================
+
+1. TRATAMIENTO DE COLUMNAS:
+- Columnas eliminadas: ['subject_id', 'mechanical_ventilation', 'sofa_score', 'apache_iv', 'qsofa', 'sirs_criteria', 'pao2_fio2_ratio', 'antibiotics_24h', 'fluids_ml_24h', 'vasopressors_flag', 'vasopressor_dose_mcg_kg_min']
+- Variables numéricas procesadas: 61
+- Variables categóricas codificadas: ['gender', 'ethnicity', 'insurance', 'hospital_admit_source']
+
+2. DIMENSIONES FINALES DE LOS SETS:
+- X_train (Entrenamiento): 3750 filas, 73 columnas
+- X_test (Prueba): 1250 filas, 73 columnas
+
+3. VERIFICACIÓN DE ESTRATIFICACIÓN (PROPORCIÓN DE SEPSIS):
+- Proporción Sepsis en Train: 15.01%
+- Proporción Sepsis en Test: 14.96%
+
+4. COMPROBACIÓN FINAL DE NULOS:
+- Valores nulos remanentes en X_train: 0
+- Valores nulos remanentes en X_test: 0
