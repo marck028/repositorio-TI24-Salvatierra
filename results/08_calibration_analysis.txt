@@ -1,0 +1,74 @@
+==========================================================================================
+REPORTE DE ANÁLISIS DE CALIBRACIÓN
+==========================================================================================
+
+1. CONCEPTO DE CALIBRACIÓN
+------------------------------------------------------------------------------------------
+   La calibración evalúa si las probabilidades predichas por el modelo
+   reflejan las tasas reales de eventos. Un modelo bien calibrado mostrará
+   que cuando predice 70% de sepsis, aproximadamente 70% de esos casos
+   realmente tienen sepsis.
+
+2. MÉTRICAS DE CALIBRACIÓN
+------------------------------------------------------------------------------------------
+Métrica                   Definición                                                       
+------------------------------------------------------------------------------------------
+Brier Score               Mean squared error de probabilidades                             
+                         Rango: [0,1]. Menor = mejor                                      
+Log Loss                  Entropía cruzada de predicciones                                 
+                         Penaliza más errores extremos                                    
+Calibration Curve         Grafica prob. predicha vs prob. real                             
+                         Diagonal perfecto = bien calibrado                               
+
+3. RESULTADOS XGBOOST
+------------------------------------------------------------------------------------------
+   Brier Score:     0.005659
+   Log Loss:        0.019022
+   ROC-AUC:         0.999975
+   Interpretación:  BIEN CALIBRADO
+
+4. RESULTADOS LIGHTGBM
+------------------------------------------------------------------------------------------
+   Brier Score:     0.002932
+   Log Loss:        0.010012
+   ROC-AUC:         0.999995
+   Interpretación:  BIEN CALIBRADO
+
+5. COMPARACIÓN
+------------------------------------------------------------------------------------------
+Métrica              XGBoost              LightGBM            
+------------------------------------------------------------
+Brier Score          0.005659             0.002932            
+Log Loss             0.019022             0.010012            
+ROC-AUC              0.999975             0.999995            
+
+   ⭐ Mejor calibrado: LightGBM
+
+6. DISTRIBUCIÓN DE CONFIANZA XGBOOST
+------------------------------------------------------------------------------------------
+   Bajo (0-30%)              ██████████████████████████████████████████░░░░░░░░ 84.3% (n=1054)
+   Medio (30-50%)            ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0.0% (n=0)
+   Medio-Alto (50-70%)       ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0.1% (n=1)
+   Alto (70-100%)            ███████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 15.6% (n=195)
+
+7. DISTRIBUCIÓN DE CONFIANZA LIGHTGBM
+------------------------------------------------------------------------------------------
+   Bajo (0-30%)              ██████████████████████████████████████████░░░░░░░░ 84.6% (n=1058)
+   Medio (30-50%)            ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0.0% (n=0)
+   Medio-Alto (50-70%)       ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0.1% (n=1)
+   Alto (70-100%)            ███████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 15.3% (n=191)
+
+8. INTERPRETACIÓN CLÍNICA
+------------------------------------------------------------------------------------------
+   • Un Brier Score de 0.0029 indica que en promedio,
+     el modelo se equivoca en 0.29% en probabilidad.
+   • Las probabilidades predichas pueden ser usadas directamente en
+     contexto clínico sin recalibración.
+   • Un médico puede confiar en los valores de probabilidad del modelo.
+
+9. RECOMENDACIONES
+------------------------------------------------------------------------------------------
+   1. El modelo está bien calibrado.
+   2. Las probabilidades pueden interpretarse directamente.
+   3. En contexto clínico: P(sepsis)=15.6% promedio.
+   4. Considerar umbral de decisión según sensibilidad/especificidad requerida.

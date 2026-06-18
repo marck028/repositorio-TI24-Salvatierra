@@ -1,0 +1,45 @@
+[17:34:17] 
+================================================================================
+[17:34:17] [1/4] EJECUTANDO: Modelo Principal con Validación Cruzada
+[17:34:17] Script: 04_model_main_MEJORADO.py
+[17:34:17] ================================================================================
+[17:34:17] ❌ ERROR (código 2)
+[17:34:17]   ERROR: C:\Users\marco\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\python.exe: can't open file 'D:\\Documentos\\GitHub\\repositorio-TI24-Salvatierra\\04_model_main_MEJORADO.py': [Errno 2] No such file or directory
+[17:34:17] 
+================================================================================
+[17:34:17] [2/4] EJECUTANDO: Optimización de Hiperparámetros (GridSearchCV)
+[17:34:17] Script: 06_hyperparameter_tuning.py
+[17:34:17] ================================================================================
+[17:34:17] ❌ ERROR (código 2)
+[17:34:17]   ERROR: C:\Users\marco\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\python.exe: can't open file 'D:\\Documentos\\GitHub\\repositorio-TI24-Salvatierra\\06_hyperparameter_tuning.py': [Errno 2] No such file or directory
+[17:34:17] 
+================================================================================
+[17:34:17] [3/4] EJECUTANDO: Interpretabilidad con SHAP
+[17:34:17] Script: 07_model_interpretability_shap.py
+[17:34:17] ================================================================================
+[17:34:17] ❌ ERROR (código 2)
+[17:34:17]   ERROR: C:\Users\marco\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\python.exe: can't open file 'D:\\Documentos\\GitHub\\repositorio-TI24-Salvatierra\\07_model_interpretability_shap.py': [Errno 2] No such file or directory
+[17:34:17] 
+================================================================================
+[17:34:17] [4/4] EJECUTANDO: Análisis de Calibración
+[17:34:17] Script: 08_calibration_analysis.py
+[17:34:17] ================================================================================
+[17:34:18] ❌ ERROR (código 2)
+[17:34:18]   ERROR: C:\Users\marco\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\python.exe: can't open file 'D:\\Documentos\\GitHub\\repositorio-TI24-Salvatierra\\08_calibration_analysis.py': [Errno 2] No such file or directory
+[17:34:18] 
+================================================================================
+[17:34:18] RESUMEN DEL PIPELINE
+[17:34:18] ================================================================================
+[17:34:18] Total de scripts: 4
+[17:34:18] ✅ Exitosos: 0
+[17:34:18] ❌ Fallidos: 4
+[17:34:18] 
+⚠️ PIPELINE COMPLETADO CON 4 ERROR(ES)
+[17:34:18] 
+Archivos generados:
+[17:34:18]   • Reportes TXT: D:\Documentos\GitHub\repositorio-TI24-Salvatierra\results/0*.txt
+[17:34:18]   • Gráficos PNG: D:\Documentos\GitHub\repositorio-TI24-Salvatierra\plots/0*.png
+[17:34:18]   • Log: D:\Documentos\GitHub\repositorio-TI24-Salvatierra\results\pipeline_execution.log
+[17:34:18] 
+Finalizado: 2026-06-17 17:34:18
+[17:34:18] ================================================================================

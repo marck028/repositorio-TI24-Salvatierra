@@ -12,12 +12,12 @@ Dimensiones del dataset:
                             Tipo de Dato  Valores No Nulos  Valores Nulos  % Nulos
 subject_id                         int64              5000              0     0.00
 age                                int64              5000              0     0.00
-gender                            object              5000              0     0.00
+gender                               str              5000              0     0.00
 weight_kg                        float64              5000              0     0.00
 height_cm                        float64              5000              0     0.00
 bmi                              float64              4749            251     5.02
-ethnicity                         object              5000              0     0.00
-insurance                         object              5000              0     0.00
+ethnicity                            str              5000              0     0.00
+insurance                            str              5000              0     0.00
 hr_mean                          float64              5000              0     0.00
 hr_max                           float64              5000              0     0.00
 hr_min                           float64              5000              0     0.00
@@ -82,7 +82,7 @@ qsofa                              int64              5000              0     0.
 sirs_criteria                      int64              5000              0     0.00
 gcs_total                          int64              5000              0     0.00
 icu_los_hours                    float64              5000              0     0.00
-hospital_admit_source             object              5000              0     0.00
+hospital_admit_source                str              5000              0     0.00
 icu_admit_time_hour                int64              5000              0     0.00
 day_of_week                        int64              5000              0     0.00
 readmission_30day                  int64              5000              0     0.00

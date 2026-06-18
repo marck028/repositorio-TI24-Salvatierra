@@ -1,0 +1,89 @@
+================================================================================
+REPORTE COMPLETO: MODELO XGBOOST CON VALIDACIÓN CRUZADA
+================================================================================
+
+1. CONFIGURACIÓN DE HIPERPARÁMETROS
+--------------------------------------------------------------------------------
+   n_estimators: 150
+   max_depth: 5
+   learning_rate: 0.05
+   scale_pos_weight: 5.660746003552398
+   random_state: 42
+   eval_metric: logloss
+   verbosity: 0
+
+   Scale Pos Weight (Desbalanceo): 5.6607
+   Justificación: (Negativos=3187 / Positivos=563)
+
+2. RESULTADOS DE VALIDACIÓN CRUZADA (5-FOLD)
+--------------------------------------------------------------------------------
+ fold  accuracy  f1_score  roc_auc  precision  recall  fn_count  fp_count
+    1  0.997333  0.991150 0.999958   0.982456 1.00000         0         2
+    2  0.996000  0.986784 1.000000   0.973913 1.00000         0         3
+    3  1.000000  1.000000 1.000000   1.000000 1.00000         0         0
+    4  0.997333  0.991228 1.000000   0.982609 1.00000         0         2
+    5  0.994667  0.982456 0.999944   0.973913 0.99115         1         3
+
+3. ESTADÍSTICAS AGREGADAS DE VALIDACIÓN CRUZADA
+--------------------------------------------------------------------------------
+   Accuracy:   0.9971 ± 0.0020
+   F1-Score:   0.9903 ± 0.0065
+   ROC-AUC:    1.0000 ± 0.0000
+   Precision:  0.9826 ± 0.0107
+   Recall:     0.9982 ± 0.0040
+   Total FN:   1 (Media: 0.20 por fold)
+   Total FP:   10 (Media: 2.00 por fold)
+
+4. EVALUACIÓN EN CONJUNTO DE TEST (1,250 pacientes)
+--------------------------------------------------------------------------------
+   Accuracy: 0.9928
+   F1-Score: 0.9765
+   ROC-AUC: 1.0000
+   Precision: 0.9541
+   Recall: 1.0000
+
+5. REPORTE DE CLASIFICACIÓN EN TEST
+--------------------------------------------------------------------------------
+              precision    recall  f1-score   support
+
+   No Sepsis       1.00      0.99      1.00      1063
+      Sepsis       0.95      1.00      0.98       187
+
+    accuracy                           0.99      1250
+   macro avg       0.98      1.00      0.99      1250
+weighted avg       0.99      0.99      0.99      1250
+
+6. MATRIZ DE CONFUSIÓN EN TEST
+--------------------------------------------------------------------------------
+   Verdaderos Negativos (Correcto): 1054
+   Falsos Positivos (Alarma falsa): 9
+   Falsos Negativos (Omisión): 0
+   Verdaderos Positivos (Correcto): 187
+
+7. TOP 15 CARACTERÍSTICAS PREDICTIVAS
+--------------------------------------------------------------------------------
+              Feature  Importance  Importance_Percent
+         lactate_mmol    0.897624           89.762390
+               hr_min    0.015570            1.556967
+             spo2_max    0.013531            1.353074
+              sbp_max    0.009017            0.901723
+           creatinine    0.008701            0.870106
+            height_cm    0.006796            0.679619
+            spo2_mean    0.006078            0.607771
+             dbp_mean    0.004356            0.435626
+ respiratory_rate_min    0.003304            0.330380
+respiratory_rate_mean    0.002896            0.289596
+              dbp_max    0.002750            0.275016
+              dbp_min    0.002743            0.274268
+              sbp_min    0.002737            0.273681
+     temp_celsius_min    0.002571            0.257077
+ respiratory_rate_max    0.002334            0.233405
+
+8. INTERPRETACIÓN CLÍNICA
+--------------------------------------------------------------------------------
+   El modelo alcanza ROC-AUC de 1.0000 en el conjunto de test,
+   con una tasa de omisión (Falsos Negativos) de 0 de 187 casos de sepsis.
+   El recall (sensibilidad) es de 1.0000, indicando capacidad de detección
+   de pacientes con sepsis. La validación cruzada confirma estabilidad con
+   desviación estándar de ROC-AUC de ± 0.0000.
+

@@ -1,0 +1,91 @@
+==========================================================================================
+REPORTE DE INTERPRETABILIDAD - SHAP (Shapley Additive exPlanations)
+==========================================================================================
+
+1. TEORÍA DE SHAP
+------------------------------------------------------------------------------------------
+   SHAP utiliza la teoría de juegos para explicar predicciones de ML.
+   Para cada predicción, SHAP calcula la contribución de cada característica
+   basada en permutaciones del modelo. El valor SHAP representa cuánto
+   cada característica contribuye a alejar la predicción del valor base.
+
+   Expected Value (Base): 0.008695
+   (Promedio de predicciones en datos de entrenamiento)
+
+2. TOP 15 CARACTERÍSTICAS POR IMPORTANCIA SHAP
+------------------------------------------------------------------------------------------
+Rank  Feature                             SHAP Mean Abs      SHAP Mean         
+----------------------------------------------------------------------------
+1     lactate_mmol                        5.658829           -3.705235         
+2     creatinine                          0.779871           -0.669103         
+3     respiratory_rate_mean               0.245577           -0.193032         
+4     ph_arterial                         0.200918           -0.135832         
+5     respiratory_rate_min                0.195303           -0.133079         
+6     spo2_mean                           0.145837           -0.064354         
+7     platelet_count                      0.132481           -0.055570         
+8     bicarbonate                         0.130017           -0.081888         
+9     spo2_max                            0.092725           -0.063068         
+10    sbp_max                             0.069293           -0.058873         
+11    hr_mean                             0.065554           -0.049327         
+12    temp_celsius_mean                   0.041215           -0.021513         
+13    spo2_min                            0.023112           -0.008429         
+14    age                                 0.015990           -0.003317         
+15    hr_min                              0.011302           -0.008347         
+
+3. INTERPRETACIÓN CLÍNICA DE RESULTADOS SHAP
+------------------------------------------------------------------------------------------
+   Las 5 características más importantes para predecir sepsis:
+
+   1. LACTATE_MMOL
+      • SHAP Impact: 5.658829
+      • Tendencia: Disminuye riesgo
+      • Explicación: Esta variable tiene alto impacto en las
+        predicciones del modelo de sepsis.
+
+   2. CREATININE
+      • SHAP Impact: 0.779871
+      • Tendencia: Disminuye riesgo
+      • Explicación: Esta variable tiene alto impacto en las
+        predicciones del modelo de sepsis.
+
+   3. RESPIRATORY_RATE_MEAN
+      • SHAP Impact: 0.245577
+      • Tendencia: Disminuye riesgo
+      • Explicación: Esta variable tiene alto impacto en las
+        predicciones del modelo de sepsis.
+
+   4. PH_ARTERIAL
+      • SHAP Impact: 0.200918
+      • Tendencia: Disminuye riesgo
+      • Explicación: Esta variable tiene alto impacto en las
+        predicciones del modelo de sepsis.
+
+   5. RESPIRATORY_RATE_MIN
+      • SHAP Impact: 0.195303
+      • Tendencia: Disminuye riesgo
+      • Explicación: Esta variable tiene alto impacto en las
+        predicciones del modelo de sepsis.
+
+4. VALIDEZ DEL ANÁLISIS SHAP
+------------------------------------------------------------------------------------------
+   ✓ Método: TreeExplainer (O(T*D) complejidad)
+   ✓ Eficiencia: Rápido para gradient boosting
+   ✓ Convergencia: Teóricamente garantizada
+   ✓ Muestras: Test set completo analizado
+   ✓ Validez: SHAP values respetan propiedades de Shapley
+     (Eficiencia local, simetría, dummy, aditividad)
+
+5. EJEMPLO DE INTERPRETACIÓN INDIVIDUAL
+------------------------------------------------------------------------------------------
+   Para una predicción individual, SHAP muestra:
+   • Valor base (Expected Value): 0.0087
+   • Contribución de cada feature: Valor SHAP
+   • Predicción final: Base + Σ(Contribuciones SHAP)
+
+   Ejemplo:
+   Si un paciente tiene:
+   - Creatinina alta: +0.15 (aumenta probabilidad de sepsis)
+   - SpO2 normal: -0.08 (reduce probabilidad)
+   - Lactato elevado: +0.22 (fuerte indicador de sepsis)
+   Predicción: 0.50 (base) + 0.15 - 0.08 + 0.22 = 0.79 (79% sepsis)
+

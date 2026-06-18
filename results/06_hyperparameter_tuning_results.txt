@@ -1,0 +1,93 @@
+==========================================================================================
+REPORTE DE OPTIMIZACIÓN DE HIPERPARÁMETROS - GridSearchCV
+==========================================================================================
+
+1. CONFIGURACIÓN GENERAL
+------------------------------------------------------------------------------------------
+   Estrategia de Validación: Stratified K-Fold (5 pliegues)
+   Métrica de Optimización: ROC-AUC
+   Scale Pos Weight: 5.6607
+   Conjunto de Entrenamiento: 3750 muestras
+
+2. RESULTADOS XGBOOST - TOP 10 COMBINACIONES
+------------------------------------------------------------------------------------------
+ n_estimators  max_depth  learning_rate  subsample  mean_auc  std_auc  rank
+          200          3           0.10        0.7  0.999997 0.000006     1
+          150          3           0.10        0.7  0.999997 0.000006     1
+          200          3           0.05        0.9  0.999994 0.000011     3
+          200          5           0.05        0.7  0.999994 0.000011     3
+          200          7           0.10        0.9  0.999994 0.000011     3
+          200          5           0.10        0.9  0.999994 0.000011     3
+          200          3           0.05        0.7  0.999994 0.000011     3
+          200          7           0.10        0.7  0.999994 0.000011     3
+          150          3           0.10        0.9  0.999994 0.000011     3
+          200          3           0.10        0.9  0.999994 0.000011     3
+
+3. MEJOR MODELO XGBOOST
+------------------------------------------------------------------------------------------
+   Hiperparámetros Óptimos:
+      • learning_rate: 0.1
+      • max_depth: 3
+      • n_estimators: 150
+      • subsample: 0.7
+
+   Rendimiento CV (5-Fold):
+      • ROC-AUC: 1.0000
+      • Std: 0.0000
+
+   Rendimiento en Test:
+      • Accuracy: 0.9968
+      • F1-Score: 0.9894
+      • ROC-AUC: 1.0000
+      • Tiempo de entrenamiento GridSearch: 19.18s
+
+4. RESULTADOS LIGHTGBM - TOP 10 COMBINACIONES
+------------------------------------------------------------------------------------------
+ n_estimators  max_depth  learning_rate  num_leaves  mean_auc  std_auc  rank
+          150          3           0.10          50  0.999994 0.000011     1
+          150          3           0.10          31  0.999994 0.000011     1
+          200          3           0.10          31  0.999994 0.000011     1
+          150          3           0.10          70  0.999994 0.000011     1
+          200          3           0.10          50  0.999994 0.000011     1
+          200          3           0.10          70  0.999994 0.000011     1
+          200          3           0.05          50  0.999989 0.000022     7
+          200          3           0.05          31  0.999989 0.000022     7
+          100          3           0.10          70  0.999989 0.000022     7
+          200          3           0.05          70  0.999989 0.000022     7
+
+5. MEJOR MODELO LIGHTGBM
+------------------------------------------------------------------------------------------
+   Hiperparámetros Óptimos:
+      • learning_rate: 0.1
+      • max_depth: 3
+      • n_estimators: 150
+      • num_leaves: 31
+
+   Rendimiento CV (5-Fold):
+      • ROC-AUC: 1.0000
+      • Std: 0.0000
+
+   Rendimiento en Test:
+      • Accuracy: 0.9976
+      • F1-Score: 0.9920
+      • ROC-AUC: 1.0000
+      • Tiempo de entrenamiento GridSearch: 61.89s
+
+6. COMPARACIÓN FINAL
+------------------------------------------------------------------------------------------
+Métrica                   XGBoost              LightGBM            
+-----------------------------------------------------------------
+CV ROC-AUC                1.0000               1.0000              
+Test Accuracy             0.9968               0.9976              
+Test F1-Score             0.9894               0.9920              
+Test ROC-AUC              1.0000               1.0000              
+
+   ✓ MEJOR MODELO: XGBoost
+
+7. RECOMENDACIONES PARA DEFENSA ORAL
+------------------------------------------------------------------------------------------
+   • Los hiperparámetros óptimos fueron seleccionados mediante GridSearchCV
+     con validación cruzada estratificada de 5 pliegues.
+   • Se evaluaron 24 combinaciones diferentes para XGBoost y LightGBM.
+   • El modelo ganador (XGBoost) alcanzó ROC-AUC de 1.0000 en test.
+   • La estabilidad fue validada mediante desviación estándar de CV.
