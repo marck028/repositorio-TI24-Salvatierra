@@ -279,7 +279,7 @@ num_leaves=31
 ## 🎓 Documentos Académicos
 
 ### Informe LaTeX
-Archivo: `INFORME_OVERLEAF_FUNCIONA.txt`
+Archivo: `Informe_Final.txt`
 - ✅ 27 páginas profesionales
 - ✅ Portada + resumen
 - ✅ Metodología completa
