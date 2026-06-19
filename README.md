@@ -1,9 +1,5 @@
 # Predicción Temprana de Sepsis en UCI usando Machine Learning
 
-![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
-![Status](https://img.shields.io/badge/status-Completo-brightgreen)
-
 ## 📋 Descripción del Proyecto
 
 Sistema de machine learning para **predicción temprana de sepsis en unidades de cuidados intensivos (UCI)** utilizando técnicas de gradient boosting (XGBoost y LightGBM) con validación cruzada estratificada, optimización de hiperparámetros mediante GridSearchCV, e interpretabilidad clínica mediante SHAP.
